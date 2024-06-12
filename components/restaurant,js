@@ -1,5 +1,0 @@
-const RestaurantComponent = () => {
-  return <div className="reastaurant-wrapper"></div>;
-};
-
-export default RestaurantComponent;
