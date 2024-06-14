@@ -1,5 +1,6 @@
 import RestaurantListComponent from "./reastaurant-list.js";
 import RestaurantComponent from "./restaurant.js";
+import { useEffect } from "react";
 
 const BodyComponent = () => {
   return (

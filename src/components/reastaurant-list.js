@@ -1,11 +1,16 @@
 import RestaurantComponent from "./restaurant";
 import { useEffect, useState } from "react";
 import ShimmerRestaurantWrapperComponent from "./shimmer";
+import { Link } from "react-router-dom";
 
 const RestaurantListComponent = (props) => {
   const [resList, setResList] = useState([]);
   const [allRestro, setAllRestro] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // });
 
   useEffect(() => {
     getAllReastaurantApi();
@@ -80,7 +85,14 @@ const RestaurantListComponent = (props) => {
       </div>
       <div className="restaurant-list-wrapper">
         {resList.map(function (res) {
-          return <RestaurantComponent key={res.info.resId} data={res} />;
+          return (
+            <Link
+              key={res.info.resId}
+              to={`/restaurant${res.cardAction.clickUrl}`}
+            >
+              <RestaurantComponent data={res} />
+            </Link>
+          );
         })}
       </div>
     </div>

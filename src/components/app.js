@@ -1,12 +1,13 @@
 import HeaderComponent from "./header";
 import BodyComponent from "./body";
 import FooterComponent from "./footer";
+import { Outlet } from "react-router-dom";
 
 const AppComponent = () => {
   return (
     <div className="app-wapper">
       <HeaderComponent />
-      <BodyComponent />
+      <Outlet />
       <FooterComponent />
     </div>
   );

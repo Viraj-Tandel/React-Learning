@@ -1,5 +1,6 @@
 const RestaurantComponent = (props) => {
   const { name, image, rating, cuisine, costText, locality } = props.data.info;
+  const { clickUrl } = props.data.cardAction;
   const { distance } = props.data;
   return (
     <div className="restaurant-card">

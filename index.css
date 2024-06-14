@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+}
+
 a {
   text-decoration: none;
 }
@@ -287,7 +291,7 @@ li {
   overflow: hidden;
   background-color: #f0f0f0;
   margin: 10px;
-  font-family: Arial, sans-serif;
+  /* font-family: Arial, sans-serif; */
 }
 
 .shimmer-image-wrapper {
@@ -337,4 +341,235 @@ li {
   100% {
     background-position: -200% 0;
   }
+}
+
+/* Error Page CSS*/
+
+.error-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+.error-message {
+  color: #d9534f;
+}
+
+/* RestaurantDetailComponent.css */
+/* body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f8f8f8;
+} */
+
+.pfchangs-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.content {
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 60vh; /* Adjust height as needed */
+  max-height: 600px; /* Ensure maximum height for large screens */
+  background: linear-gradient(
+    90deg,
+    #f0f0f0,
+    #f8f8f8
+  ); /* Adding a gradient background */
+}
+
+.carousel-content {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%; /* Ensures images fit within the container height */
+}
+
+.carousel-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image fits within the container */
+  display: none;
+  border-radius: 10px;
+}
+
+.carousel-content img.active {
+  display: block;
+}
+
+.carousel .carousel-control-left,
+.carousel .carousel-control-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .carousel-control-left {
+  left: 0;
+}
+
+.carousel .carousel-control-right {
+  right: 0;
+}
+
+.carousel .carousel-control-left::before,
+.carousel .carousel-control-right::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 24px;
+  color: white;
+}
+
+.carousel .carousel-control-left::before {
+  content: "\f053"; /* FontAwesome left arrow */
+}
+
+.carousel .carousel-control-right::before {
+  content: "\f054"; /* FontAwesome right arrow */
+}
+
+.details {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.details h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.details p {
+  margin: 5px 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actions button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #009688;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.actions button:hover {
+  background-color: #00796b;
+}
+
+.ratings {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dining-rating {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.rating-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.votes-count {
+  font-size: 14px;
+  color: #888;
+}
+
+.cuisines-container {
+  margin-top: 20px;
+}
+
+.cuisines-container h4 {
+  margin-bottom: 10px;
+}
+
+.cuisine-tag {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  color: #009688;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.cuisine-tag:hover {
+  background-color: #e0e0e0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.restaurant-detail-shimmer {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.pfchangs-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
 }
