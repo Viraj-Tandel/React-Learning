@@ -15,18 +15,9 @@ const ShimmerRestaurantComponent = () => {
 const ShimmerRestaurantWrapperComponent = () => {
   return (
     <div className="shimmer-list-wrapper">
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
-      <ShimmerRestaurantComponent />
+      {Array.from({ length: 36 }).map((_, index) => (
+        <ShimmerRestaurantComponent key={index} />
+      ))}
     </div>
   );
 };
