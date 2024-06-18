@@ -2,23 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import ReastaurantDetailShimmerComponent from "./restaurant-detail-shimmer";
+import useRestaurantDetail from "../utils/useRestaurantDetail";
 
 const RestaurantDetailComponent = () => {
-  const [restroDetails, setRestroDetails] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { city, name: restaurantName } = useParams(); // Renamed to restaurantName
-
-  useEffect(() => {
-    const getRestroDetail = async () => {
-      const response = await fetch(
-        `https://www.zomato.com/webroutes/getPage?page_url=${city}/${restaurantName}`
-      );
-      const json = await response.json();
-      setRestroDetails(json);
-    };
-
-    getRestroDetail();
-  }, [city, restaurantName]);
+  const restroDetails = useRestaurantDetail(city, restaurantName);
 
   useEffect(() => {
     window.scrollTo(0, 0);
