@@ -1,14 +1,27 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import AppComponent from "./components/app";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorComponent from "./components/error";
-import ContactUsComponent from "./components/contact-us";
-import AboutUsComponent from "./components/about-us";
 import BodyComponent from "./components/body";
-import RestaurantDetailComponent from "./components/restaurant-details";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const AboutUsComponent = lazy(() => import("./components/about-us"));
+
+const ContactUsComponent = lazy(() => import("./components/contact-us"));
+
+const RestaurantDetailComponent = lazy(() =>
+  import("./components/restaurant-details")
+);
+
+const fallbackTemp = () => {
+  return (
+    <div className="fallback-wrapper">
+      <h2>Loading...</h2>
+    </div>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -18,22 +31,30 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <BodyComponent />,
-        errorElement: <ErrorComponent />,
       },
       {
         path: "contact-us",
-        element: <ContactUsComponent />,
-        errorElement: <ErrorComponent />,
+        element: (
+          <Suspense fallback={fallbackTemp()}>
+            <ContactUsComponent />
+          </Suspense>
+        ),
       },
       {
         path: "about-us",
-        element: <AboutUsComponent />,
-        errorElement: <ErrorComponent />,
+        element: (
+          <Suspense fallback={null}>
+            <AboutUsComponent />
+          </Suspense>
+        ),
       },
       {
         path: "restaurant/:city/:name/info",
-        element: <RestaurantDetailComponent />,
-        errorElement: <ErrorComponent />,
+        element: (
+          <Suspense fallback={null}>
+            <RestaurantDetailComponent />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <ErrorComponent />,

@@ -1,8 +1,18 @@
+import useOnlineStatus from "../utils/useOnlineStatus.js";
+import OfflineComponent from "./offline.js";
 import RestaurantListComponent from "./reastaurant-list.js";
-import RestaurantComponent from "./restaurant.js";
-import { useEffect } from "react";
 
 const BodyComponent = () => {
+  const online = useOnlineStatus();
+
+  if (!online) {
+    return (
+      <div className="offline-wrapper">
+        <OfflineComponent />
+      </div>
+    );
+  }
+
   return (
     <div className="body-wrapper">
       <div className="res-container">

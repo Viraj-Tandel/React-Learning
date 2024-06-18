@@ -1,22 +1,18 @@
-import RestaurantComponent from "./restaurant";
-import { useEffect, useState } from "react";
-import ShimmerRestaurantWrapperComponent from "./shimmer";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import RestaurantComponent from "./restaurant";
+import ShimmerRestaurantWrapperComponent from "./shimmer";
 
-const RestaurantListComponent = (props) => {
+const RestaurantListComponent = () => {
   const [resList, setResList] = useState([]);
   const [allRestro, setAllRestro] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // });
-
   useEffect(() => {
-    getAllReastaurantApi();
+    fetchAllRestaurants();
   }, []);
 
-  async function getAllReastaurantApi() {
+  const fetchAllRestaurants = async () => {
     try {
       const apiResponse = await fetch(
         "https://reastaurant-api.vercel.app/restaturant"
@@ -24,49 +20,41 @@ const RestaurantListComponent = (props) => {
       const jsonResp = await apiResponse.json();
       setResList(jsonResp.data);
       setAllRestro(jsonResp.data);
-    } catch (e) {
-      // throw e;
+    } catch (error) {
+      console.error("Failed to fetch restaurants:", error);
     }
-  }
-
-  // * function to filter restaurant
-  const filterRestaurant = () => {
-    const filteredRes = resList.filter(
-      (res) => Number(res.info.rating.rating_text) > 4
-    );
-    setResList(filteredRes);
   };
 
-  // * search button click handler
-  const searchButtonHandler = (searchInput) => {
-    const searchList = allRestro.filter((res) =>
+  const handleSearchChange = (e) => {
+    const input = e.target.value;
+    setSearchText(input);
+    searchRestaurants(input);
+  };
+
+  const searchRestaurants = (searchInput) => {
+    const filteredList = allRestro.filter((res) =>
       res.info.name.toLowerCase().includes(searchInput.toLowerCase())
     );
-    if (searchList.length !== 0) {
-      setResList(searchList);
-    } else {
-      alert("No Reastaurant Found!!!!");
-      setSearchText("");
-      setResList(allRestro);
-    }
+    setResList(filteredList);
   };
 
-  if (resList.length === 0) {
-    return (
-      <>
-        <div className="btn-wrapper">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Please type here to search..."
-          />
-          <button>SEARCH</button>
-          <button>GET TOP RATED RESTAURANTS</button>
-        </div>
-        <ShimmerRestaurantWrapperComponent />
-      </>
-    );
-  }
+  const renderRestaurantList = () => (
+    <div className="restaurant-list-wrapper">
+      {resList.map((res) => (
+        <Link key={res.info.resId} to={`/restaurant${res.cardAction.clickUrl}`}>
+          <RestaurantComponent data={res} />
+        </Link>
+      ))}
+    </div>
+  );
+
+  const renderNoRestaurantsFound = () => (
+    <div className="no-restro-found">
+      <h3>Restaurant Not Found!!!!!</h3>
+    </div>
+  );
+
+  const renderShimmerComponent = () => <ShimmerRestaurantWrapperComponent />;
 
   return (
     <div className="restaurant-list">
@@ -76,27 +64,20 @@ const RestaurantListComponent = (props) => {
           className="search-input"
           placeholder="Please type here to search..."
           value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
+          onChange={handleSearchChange}
         />
-        <button onClick={() => searchButtonHandler(searchText)}>SEARCH</button>
-        <button onClick={filterRestaurant}>GET TOP RATED RESTAURANTS</button>
       </div>
-      <div className="restaurant-list-wrapper">
-        {resList.map(function (res) {
-          return (
-            <Link
-              key={res.info.resId}
-              to={`/restaurant${res.cardAction.clickUrl}`}
-            >
-              <RestaurantComponent data={res} />
-            </Link>
-          );
-        })}
-      </div>
+      {resList.length === 0
+        ? searchText
+          ? renderNoRestaurantsFound()
+          : renderShimmerComponent()
+        : renderRestaurantList()}
     </div>
   );
 };
+
+// RestaurantListComponent.propTypes = {
+//   apiUrl: PropTypes.string.isRequired,
+// };
 
 export default RestaurantListComponent;
