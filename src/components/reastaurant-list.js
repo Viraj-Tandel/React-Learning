@@ -39,7 +39,7 @@ const RestaurantListComponent = () => {
   };
 
   const renderRestaurantList = () => (
-    <div className="restaurant-list-wrapper">
+    <div className="restaurant-list-wrapper flex flex-wrap justify-center">
       {resList.map((res) => (
         <Link key={res.info.resId} to={`/restaurant${res.cardAction.clickUrl}`}>
           <RestaurantComponent data={res} />
@@ -58,10 +58,10 @@ const RestaurantListComponent = () => {
 
   return (
     <div className="restaurant-list">
-      <div className="btn-wrapper">
+      <div className="btn-wrapper flex justify-center m-4 gap-5">
         <input
           type="text"
-          className="search-input"
+          className="search-input w-96 p-2 border-solid border border-gray-400 outline-none"
           placeholder="Please type here to search..."
           value={searchText}
           onChange={handleSearchChange}

@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,7 +12,6 @@ a {
   text-decoration: none;
 }
 
-/* Header wrapper*/
 .header-wrapper {
   display: flex;
   justify-content: space-between;
@@ -32,23 +31,20 @@ li {
 .search-input {
   width: 500px;
   font-size: 16px;
-  padding: 8px; /* Add padding for better appearance */
-  border: 1px solid #ccc; /* Add border for better appearance */
-  border-radius: 4px; /* Add border radius for better appearance */
-  outline: none; /* Remove default outline */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
 }
 
-/* Additional styling for placeholder text */
+
 .search-input::placeholder {
-  color: #999; /* Change placeholder text color */
+  color: #999; 
 }
 
-/*Body component css*/
-
-/* Button styles */
 .btn-wrapper button {
-  background-color: #4caf50; /* Green background */
-  border: 2px solid transparent; /* Initial transparent border to avoid layout shift */
+  background-color: #4caf50;
+  border: 2px solid transparent;
   color: white;
   padding: 15px 15px;
   text-align: center;
@@ -56,7 +52,7 @@ li {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  transition: background-color 0.4s, color 0.4s; /* Only transition color properties */
+  transition: background-color 0.4s, color 0.4s;
   cursor: pointer;
   border-radius: 12px;
 }
@@ -64,18 +60,18 @@ li {
 .btn-wrapper button:hover {
   background-color: white;
   color: #4caf50;
-  border: 2px solid #4caf50; /* Same border width to avoid layout shift */
+  border: 2px solid #4caf50;
 }
 
 .btn-wrapper button:focus {
-  outline: none; /* Remove outline on focus */
+  outline: none;
 }
 
 .btn-wrapper {
   display: flex;
   gap: 20px;
   margin: 16px;
-  justify-content: center; /* Center align buttons */
+  justify-content: center;
 }
 
 .restaurant-list-wrapper {
@@ -84,13 +80,12 @@ li {
   justify-content: center;
 }
 
-/* Reastaurnt card css*/
 .restaurant-card {
   width: 300px;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+  transition: box-shadow 0.3s ease;
   font-family: Arial, sans-serif;
   background-color: #fff;
   margin: 10px;
@@ -103,11 +98,11 @@ li {
 
 .cuisine,
 .restaurant-name {
-  white-space: nowrap; /* Prevent the text from wrapping */
-  overflow: hidden; /* Hide the overflowing text */
-  text-overflow: ellipsis; /* Show the ellipsis (...) */
-  display: inline-block; /* Required for ellipsis to work properly */
-  width: 60%; /* Adjust width as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 60%;
 }
 
 .restaurant-name-wrapper {
@@ -116,7 +111,7 @@ li {
 }
 
 .restaurant-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .image-wrapper {
@@ -153,7 +148,7 @@ li {
 }
 
 .opening-time {
-  color: #d9534f; /* Red color */
+  color: #d9534f;
 }
 
 .additional-info {
@@ -164,7 +159,6 @@ li {
 }
 
 .rating {
-  /* background-color: #4caf50; Green background */
   color: #fff;
   padding: 5px 8px;
   border-radius: 5px;
@@ -186,7 +180,6 @@ li {
   color: #666;
 }
 
-/** Footer css code will goes here**/
 .footer {
   background-color: #f8f8f8;
   padding: 40px 0;
@@ -274,9 +267,6 @@ li {
   margin-top: 20px;
 }
 
-/** Shimmer Restaurant Component */
-
-/* Shimmer effect CSS */
 
 .shimmer-list-wrapper {
   display: flex;
@@ -291,7 +281,6 @@ li {
   overflow: hidden;
   background-color: #f0f0f0;
   margin: 10px;
-  /* font-family: Arial, sans-serif; */
 }
 
 .shimmer-image-wrapper {
@@ -343,7 +332,6 @@ li {
   }
 }
 
-/* Error Page CSS*/
 
 .error-wrapper {
   display: flex;
@@ -355,17 +343,6 @@ li {
 .error-message {
   color: #d9534f;
 }
-
-/* RestaurantDetailComponent.css */
-/* body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  margin: 0;
-  background-color: #f8f8f8;
-} */
 
 .pfchangs-container {
   width: 90%;
@@ -383,25 +360,25 @@ li {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  height: 60vh; /* Adjust height as needed */
-  max-height: 600px; /* Ensure maximum height for large screens */
+  height: 60vh;
+  max-height: 600px;
   background: linear-gradient(
     90deg,
     #f0f0f0,
     #f8f8f8
-  ); /* Adding a gradient background */
+  );
 }
 
 .carousel-content {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  height: 100%; /* Ensures images fit within the container height */
+  height: 100%;
 }
 
 .carousel-content img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the image fits within the container */
+  object-fit: contain;
   display: none;
   border-radius: 10px;
 }
@@ -443,11 +420,11 @@ li {
 }
 
 .carousel .carousel-control-left::before {
-  content: "\f053"; /* FontAwesome left arrow */
+  content: "\f053";
 }
 
 .carousel .carousel-control-right::before {
-  content: "\f054"; /* FontAwesome right arrow */
+  content: "\f054";
 }
 
 .details {
@@ -556,8 +533,6 @@ li {
   );
   background-repeat: no-repeat;
   background-size: 800px 104px;
-  /* display: flex; */
-  /* position: relative; */
   animation: shimmer 1.5s infinite linear;
 }
 
@@ -583,149 +558,147 @@ li {
   align-items: center;
   height: 50vh;
   color: rgb(242, 12, 12);
-}
+} */
 
-/* 
-:root {
-  --status-color: orangered;
-  --second-signal-delay: 0s;
-  --third-signal-delay: 0s;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.offline-wrapper {
+* {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.detector {
-  width: 40em;
-  height: 14em;
-  font-size: 10px;
-  display: flex;
+.header-wrapper {
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  /* gap: 5%; */
+  border: 1px solid black;
+  /* padding: 16px; */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #666;
+}
+
+.footer-country select {
+  margin: 0 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.footer-social-links a {
+  margin: 0 10px;
   color: #333;
-  position: relative;
+  font-size: 20px;
 }
 
-.detector-wrapper {
+.footer-app-links a {
+  margin: 0 10px;
+}
+
+.footer-app-links img {
+  width: 135px;
+  height: 40px;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: #777;
+  margin-top: 20px;
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.shimmer-list-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  height: 60vh;
 }
 
-.detector > * {
-  position: relative;
-  box-sizing: border-box;
+.shimmer-wrapper {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  margin: 10px;
 }
 
-.detector > *::before,
-.detector > *::after {
-  content: "";
-  position: absolute;
-  box-sizing: border-box;
+.shimmer-image-wrapper {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
 
-.client {
-  width: 13em;
-  height: 10em;
-  border: 0.5em solid;
-  border-radius: 0.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -4em;
+.shimmer-text {
+  margin: 15px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
 }
 
-.client::before {
-  width: 1.5em;
-  height: 3em;
-  background-color: currentColor;
-  top: 9.5em;
+.shimmer-name {
+  width: 60%;
+  height: 16px;
+  margin-bottom: 10px;
 }
 
-.client::after {
-  width: 5em;
-  height: 1em;
-  background-color: currentColor;
-  border-radius: 0.3em;
-  top: 12.5em;
+.shimmer-rating {
+  width: 20%;
+  height: 12px;
+  margin-bottom: 10px;
 }
 
-.signal,
-.signal::before,
-.signal::after {
-  width: 1em;
-  height: 1em;
-  background-color: var(--status-color);
-  border-radius: 50%;
-  animation: blink 0.6s infinite;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 50%;
+.shimmer-line {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 10px;
 }
 
-.signal::before {
-  right: 2.5em;
-  animation-delay: var(--second-signal-delay);
+.shimmer-short-line {
+  width: 80%;
+  height: 10px;
+  margin-bottom: 10px;
 }
 
-.signal::after {
-  left: 2.5em;
-  animation-delay: var(--third-signal-delay);
-}
-
-@keyframes blink {
-  50% {
-    filter: opacity(0.1);
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
-.server {
-  width: 7em;
-  height: 14em;
-  border: 0.5em solid;
-  border-radius: 0.5em;
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
-.server::before {
-  width: 5em;
-  height: 1em;
-  background-color: currentColor;
-  border-radius: 0.2em;
-  top: 8em;
-  left: 0.5em;
-  box-shadow: 0 1.5em 0;
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
-
-.server::after {
-  width: 0.6em;
-  height: 0.6em;
-  background-color: currentColor;
-  border-radius: 50%;
-  right: 1.5em;
-  bottom: 0.5em;
-  box-shadow: 1em 0 0 0.1em;
-}
-
-p {
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
-  letter-spacing: 1px;
-  color: #333;
-  margin-top: 1em;
-}
-
-.fallback-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-} */
