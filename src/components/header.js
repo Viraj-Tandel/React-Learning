@@ -3,13 +3,18 @@ import { LOGO_URL } from "../utils/constants";
 
 const HeaderComponent = () => {
   return (
-    <div className="header-wrapper">
+    <div className="header-wrapper p-4 gap-5 flex justify-between align-middle">
       <div className="logo-container">
-        <img style={{ height: "30px" }} src={LOGO_URL} alt="website-logo" />
+        <img
+          className="h-8"
+          // style={{ height: "30px" }}
+          src={LOGO_URL}
+          alt="website-logo"
+        />
       </div>
       <div className="nav-bar">
         <nav>
-          <ul>
+          <ul className="flex gap-3">
             <li>
               <Link to={"/"}>Home</Link>
             </li>

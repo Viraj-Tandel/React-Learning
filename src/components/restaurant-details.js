@@ -36,52 +36,63 @@ const RestaurantDetailComponent = () => {
     restroDetails?.page_data?.sections?.SECTION_BASIC_INFO;
 
   return (
-    <div className="pfchangs-container">
-      <div className="content">
-        <div className="carousel" data-carousel="1" data-speed="2000">
+    <div className="container mx-auto my-5 p-5 max-w-screen-lg">
+      <div className="relative">
+        <div className="carousel relative overflow-hidden rounded-lg shadow-lg h-[60vh] max-h-[600px] bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100">
           <span
-            className="carousel-control-left"
+            className="absolute top-1/2 transform -translate-y-1/2 left-0 w-10 h-full cursor-pointer z-10 bg-black bg-opacity-50 flex items-center justify-center text-white"
             onClick={() => handlePrev(IMAGES)}
           >
             <i className="fas fa-chevron-left"></i>
           </span>
           <span
-            className="carousel-control-right"
+            className="absolute top-1/2 transform -translate-y-1/2 right-0 w-10 h-full cursor-pointer z-10 bg-black bg-opacity-50 flex items-center justify-center text-white"
             onClick={() => handleNext(IMAGES)}
           >
             <i className="fas fa-chevron-right"></i>
           </span>
-          <div className="carousel-content">
+          <div className="carousel-content flex transition-transform ease-in-out duration-500 h-full">
             {IMAGES.map((img, index) => (
               <img
                 src={img.url}
                 key={img.photoId}
                 alt={name}
-                className={index === currentIndex ? "active" : ""}
+                className={`w-full h-full object-contain ${
+                  index === currentIndex ? "block" : "hidden"
+                } rounded-lg`}
               />
             ))}
           </div>
         </div>
-        <div className="details">
-          <h1>{name}</h1>
-          <p className="open-status">{timing.timing_desc}</p>
-          <div className="actions">
-            <button>Direction</button>
-            <button>Bookmark</button>
-            <button>Share</button>
+        <div className="details mt-5 p-5 bg-white rounded-lg shadow-lg">
+          <h1 className="text-2xl font-bold">{name}</h1>
+          <p className="mt-1 text-gray-600">{timing.timing_desc}</p>
+          <div className="actions flex gap-2 mt-2">
+            <button className="px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700 transition">
+              Direction
+            </button>
+            <button className="px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700 transition">
+              Bookmark
+            </button>
+            <button className="px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700 transition">
+              Share
+            </button>
           </div>
-          <div className="ratings">
+          <div className="ratings mt-2 flex items-center gap-2">
             <span
-              className="dining-rating"
+              className="px-2 py-1 rounded text-white font-bold"
               style={{ background: `#${rating.rating_color}` }}
             >
               {rating.rating_text}★
             </span>
           </div>
-          <div className="cuisines-container">
-            <h4>Cuisines</h4>
+          <div className="cuisines-container mt-5">
+            <h4 className="mb-2 font-bold">Cuisines</h4>
             {CUISINES.map((cuisine, index) => (
-              <span key={index} className="cuisine-tag">
+              <span
+                key={index}
+                className="inline-block px-2 py-1 border border-gray-300 rounded-full bg-gray-100 text-teal-600 cursor-pointer hover:bg-gray-200 transition m-1"
+              >
                 {cuisine.name}
               </span>
             ))}

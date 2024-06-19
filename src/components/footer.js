@@ -3,12 +3,16 @@ import { APP_STORE_URL, LOGO_URL, PLAY_STORE_URL } from "../utils/constants";
 
 const FooterComponent = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <img src={LOGO_URL} alt="Zomato" className="footer-logo" />
-        <div className="footer-sections">
-          <div className="footer-section">
-            <h3>ABOUT ZOMATO</h3>
+    <footer className="footer bg-[#f8f8f8] py-[40px] text-center">
+      <div className="footer-content max-w-[1200px] my-0 mx-auto py-0 px-[20px]">
+        <img
+          src={LOGO_URL}
+          alt="Zomato"
+          className="footer-logo mb-5 h-[50px]"
+        />
+        <div className="footer-sections flex justify-between flex-wrap mb-5 text-left">
+          <div className="footer-section flex-1 min-w-[150px] m-[10px]">
+            <h3 className="text-[16px] mb-[10px] text-[#333]">ABOUT ZOMATO</h3>
             <ul>
               <li>
                 <a href="#">Who We Are</a>
@@ -33,7 +37,7 @@ const FooterComponent = () => {
               </li>
             </ul>
           </div>
-          <div className="footer-section">
+          <div className="footer-section flex-1 min-w-[150px] m-[10px]">
             <h3>ZOMAVERSE</h3>
             <ul>
               <li>
@@ -53,7 +57,7 @@ const FooterComponent = () => {
               </li>
             </ul>
           </div>
-          <div className="footer-section">
+          <div className="footer-section flex-1 min-w-[150px] m-[10px]">
             <h3>FOR RESTAURANTS</h3>
             <ul>
               <li>
@@ -64,7 +68,7 @@ const FooterComponent = () => {
               </li>
             </ul>
           </div>
-          <div className="footer-section">
+          <div className="footer-section flex-1 min-w-[150px] m-[10px]">
             <h3>LEARN MORE</h3>
             <ul>
               <li>
@@ -82,7 +86,7 @@ const FooterComponent = () => {
             </ul>
           </div>
         </div>
-        <div className="footer-controls">
+        <div className="footer-controls flex justify-between align-middle mb-5">
           <div className="footer-country">
             <select>
               <option>India</option>
